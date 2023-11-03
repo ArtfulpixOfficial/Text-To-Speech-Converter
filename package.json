@@ -2,7 +2,12 @@
   "name": "text-to-speech-final",
   "version": "1.0.0",
   "description": "A text to speech converter",
-  "main": "script.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
   "author": "Karan",
   "license": "ISC",
   "dependencies": {
