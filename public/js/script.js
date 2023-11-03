@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Llena el selector de voces
   // Fill the voice selector with available voices from the API endpoint
-  await fetch(`https://text-to-speech-converter-zeta.vercel.app/api/voices`) // Esta ruta debe coincidir con la que configuraste en server.js
+  await fetch(`/api/voices`) // Esta ruta debe coincidir con la que configuraste en server.js
     .then((response) => response.json())
     .then((data) => {
       data.forEach((voice) => {
@@ -33,21 +33,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Realiza una solicitud a tu API personalizada para convertir texto a voz
     // Converting text to speech
-    await fetch(
-      `https://text-to-speech-converter-zeta.vercel.app/api/convert`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          text: text,
-          voice: selectedVoice,
-          gender: selectedGender,
-          languageCode: selectedLanguageCode,
-        }),
-      }
-    )
+    await fetch(`/api/convert`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: text,
+        voice: selectedVoice,
+        gender: selectedGender,
+        languageCode: selectedLanguageCode,
+      }),
+    })
       .then((response) => response.blob())
       .then((blob) => {
         audioPlayer.src = URL.createObjectURL(blob);
