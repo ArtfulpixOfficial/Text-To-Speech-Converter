@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
 
 app.use(express.static(__dirname + "/public"));
-
+console.log(__dirname);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
