@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
 app.get("/", (req, res) => {
-  const indexPath = `${__dirname}/public`;
+  const indexPath = `${__dirname}/index.html`;
   res.sendFile(indexPath);
 });
 
