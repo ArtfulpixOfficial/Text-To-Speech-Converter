@@ -11,8 +11,5 @@
     { "handle": "filesystem" },
     { "src": "/api/voices", "dest": "server.js" },
     { "src": "/api/convert", "dest": "server.js" }
-  ],
-  "public": {
-    "static": "public"
-  }
+  ]
 }
