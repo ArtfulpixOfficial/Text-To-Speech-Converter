@@ -37,7 +37,6 @@ app.get("/api/voices", async (req, res) => {
 // Ruta para convertir texto a voz
 app.post("/api/convert", async (req, res) => {
   // ... Código para convertir texto a voz ...
-  console.log(req.body);
   const request = {
     input: { text: req.body.text },
     voice: {

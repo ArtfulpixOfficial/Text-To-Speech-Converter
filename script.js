@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   await fetch(`http://127.0.0.1:3000/api/voices`) // Esta ruta debe coincidir con la que configuraste en server.js
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       data.forEach((voice) => {
         const option = document.createElement("option");
         option.value = voice.name;
@@ -34,8 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const selectedVoice = selectedOption.value;
     const selectedGender = selectedOption.dataset.gender;
     const selectedLanguageCode = selectedOption.dataset.languageCode;
-    console.log(selectedVoice);
-    console.log(selectedGender);
+
     // Realiza una solicitud a tu API personalizada para convertir texto a voz
     // Converting text to speech
     await fetch(`http://127.0.0.1:3000/api/convert`, {
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
       .then((response) => response.blob())
       .then((blob) => {
-        console.log(blob);
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
 
@@ -61,9 +58,12 @@ document.addEventListener("DOMContentLoaded", async function () {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = "converted_audio.mp3"; // You can change the filename if needed
+
+          // You can change the filename if needed
+          a.download = "converted_audio.mp3";
+
           a.style.display = "none";
-          document.body.appendChild(a);
+          // document.body.appendChild(a);
           a.click();
           URL.revokeObjectURL(url);
         });

@@ -7,7 +7,7 @@
 .hero {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(45deg, #010758, #490d61);
+  background: linear-gradient(135deg, #f6d242, #ff52e5);
   color: #fff;
   display: flex;
   align-items: center;
@@ -21,14 +21,11 @@
   margin-bottom: 50px;
   margin-top: -50px;
 }
-.hero h1 span {
-  color: #ff2963;
-  border-bottom: 4px solid #fff;
-}
+
 textarea {
   width: 600px;
   height: 250px;
-  background: #403d84;
+  background: #413d843d;
   color: #fff;
   font-size: 15px;
   border: 0;
@@ -67,7 +64,7 @@ button img {
 select {
   flex: 1;
   color: #fff;
-  background: #403d84;
+  background: #413d843d;
   height: 50px;
   padding: 0px 20px;
   outline: 0;
