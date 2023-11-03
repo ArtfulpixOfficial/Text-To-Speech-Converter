@@ -6,7 +6,7 @@ import { dirname } from "path";
 const app = express();
 const port = 3000;
 // use it before all route definitions
-app.use(cors({ origin: "https://text-to-speech-converter-zeta.vercel.app" }));
+app.use(cors({ origin: "*" }));
 
 app.use(json());
 
