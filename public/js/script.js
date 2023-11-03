@@ -1,6 +1,3 @@
-//
-const baseUrl = `http://127.0.0.1:3000`;
-
 document.addEventListener("DOMContentLoaded", async function () {
   const inputText = document.getElementById("input-text");
   const voiceSelector = document.getElementById("voice-selector");
@@ -10,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Llena el selector de voces
   // Fill the voice selector with available voices from the API endpoint
-  await fetch(`http://127.0.0.1:3000/api/voices`) // Esta ruta debe coincidir con la que configuraste en server.js
+  await fetch(`/api/voices`) // Esta ruta debe coincidir con la que configuraste en server.js
     .then((response) => response.json())
     .then((data) => {
       data.forEach((voice) => {
@@ -36,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Realiza una solicitud a tu API personalizada para convertir texto a voz
     // Converting text to speech
-    await fetch(`http://127.0.0.1:3000/api/convert`, {
+    await fetch(`/api/convert`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,8 +50,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
 
-        // Download Functionality
-        downloadButton.addEventListener("click", () => {
+        // Download Handler function
+        const downloadHandler = () => {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
@@ -66,7 +63,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           // document.body.appendChild(a);
           a.click();
           URL.revokeObjectURL(url);
-        });
+        };
+        // Download Functionality
+        downloadButton.removeEventListener("click", downloadHandler);
+        downloadButton.addEventListener("click", downloadHandler);
       })
       .catch((error) => {
         console.error("Error:", error);

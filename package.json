@@ -2,12 +2,19 @@
   "name": "text-to-speech-final",
   "version": "1.0.0",
   "description": "A text to speech converter",
-  "main": "script.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
   "author": "Karan",
   "license": "ISC",
   "dependencies": {
     "@google-cloud/text-to-speech": "^5.0.1",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
   }
 }

@@ -1,21 +1,33 @@
-const express = require("express");
-const cors = require("cors");
-const { TextToSpeechClient } = require("@google-cloud/text-to-speech");
+import express, { json } from "express";
+import cors from "cors";
+import { TextToSpeechClient } from "@google-cloud/text-to-speech";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 const app = express();
 const port = 3000;
-
 // use it before all route definitions
 app.use(cors({ origin: "*" }));
 
-app.use(express.json());
+app.use(json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Ruta para obtener la lista de voces
+
+app.use(express.static(__dirname + "/public"));
 
 // Configura la autenticación de Google Cloud Text-to-Speech
 const client = new TextToSpeechClient({
   keyFilename:
-    "../Text To Speech Final/animated-canyon-403420-aee5ce8ac09e.json",
+    __dirname + "/public/apiKey/animated-canyon-403420-aee5ce8ac09e.json",
 });
 
-// Ruta para obtener la lista de voces
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+  console.log(__dirname);
+});
+
 app.get("/api/voices", async (req, res) => {
   try {
     // Realiza una solicitud a Google Cloud Text-to-Speech para obtener la lista de voces
@@ -56,3 +68,4 @@ app.post("/api/convert", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+export default app;
