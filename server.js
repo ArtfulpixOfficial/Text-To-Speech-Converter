@@ -1,13 +1,13 @@
-const express = require("express");
-const cors = require("cors");
-const { TextToSpeechClient } = require("@google-cloud/text-to-speech");
+import express, { json } from "express";
+import cors from "cors";
+import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 const app = express();
 const port = 3000;
 
 // use it before all route definitions
 app.use(cors({ origin: "*" }));
 
-app.use(express.json());
+app.use(json());
 
 // Configura la autenticación de Google Cloud Text-to-Speech
 const client = new TextToSpeechClient({
