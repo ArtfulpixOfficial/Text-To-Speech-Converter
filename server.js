@@ -10,16 +10,19 @@ app.use(cors({ origin: "https://text-to-speech-converter-zeta.vercel.app" }));
 
 app.use(json());
 
-// Configura la autenticación de Google Cloud Text-to-Speech
-const client = new TextToSpeechClient({
-  keyFilename: "../../public/apiKey/animated-canyon-403420-aee5ce8ac09e.json",
-});
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 // Ruta para obtener la lista de voces
 
 app.use(express.static(__dirname + "/public"));
-console.log(__dirname);
+
+// Configura la autenticación de Google Cloud Text-to-Speech
+const client = new TextToSpeechClient({
+  keyFilename:
+    __dirname + "/public/apiKey/animated-canyon-403420-aee5ce8ac09e.json",
+});
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
   console.log(__dirname);
