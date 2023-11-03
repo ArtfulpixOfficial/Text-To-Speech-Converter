@@ -4,7 +4,7 @@ import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 const app = express();
 
 // use it before all route definitions
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "https://text-to-speech-converter-zeta.vercel.app" }));
 
 app.use(json());
 
