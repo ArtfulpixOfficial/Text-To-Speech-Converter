@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import cors from "cors";
 import { TextToSpeechClient } from "@google-cloud/text-to-speech";
+import path from "path";
 const app = express();
 
 // use it before all route definitions
@@ -15,6 +16,11 @@ const client = new TextToSpeechClient({
 });
 
 // Ruta para obtener la lista de voces
+app.get("/", (req, res) => {
+  const indexPath = path.join(__dirname, "index.html"); // Assuming the HTML file is in the same directory as 'server.js'
+  res.sendFile(indexPath);
+});
+
 app.get("/api/voices", async (req, res) => {
   try {
     // Realiza una solicitud a Google Cloud Text-to-Speech para obtener la lista de voces
