@@ -12,7 +12,7 @@ app.use(json());
 
 // Configura la autenticación de Google Cloud Text-to-Speech
 const client = new TextToSpeechClient({
-  keyFilename: "apiKey/animated-canyon-403420-aee5ce8ac09e.json",
+  keyFilename: "../animated-canyon-403420-aee5ce8ac09e.json",
 });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
