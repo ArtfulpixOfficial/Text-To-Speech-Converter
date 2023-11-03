@@ -18,12 +18,11 @@ const client = new TextToSpeechClient({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
+app.use(express.static(__dirname));
 app.get("/", (req, res) => {
   const indexPath = `${__dirname}/index.html`;
   res.sendFile(indexPath);
 });
-
-app.use(express.static(__dirname));
 
 app.get("/api/voices", async (req, res) => {
   try {
