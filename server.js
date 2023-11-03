@@ -4,7 +4,7 @@ import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 const app = express();
-
+const port = 3000;
 // use it before all route definitions
 app.use(cors({ origin: "https://text-to-speech-converter-zeta.vercel.app" }));
 
@@ -62,7 +62,7 @@ app.post("/api/convert", async (req, res) => {
   res.send(audioContent);
 });
 
-// app.listen(port, () => {
-//   console.log(`Server is listening on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
 export default app;

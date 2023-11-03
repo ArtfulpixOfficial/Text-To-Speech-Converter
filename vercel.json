@@ -8,8 +8,9 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/api/voices", "dest": "server.js" },
-    { "src": "/api/convert", "dest": "server.js" }
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
   ]
 }
