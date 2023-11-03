@@ -21,8 +21,7 @@ const __dirname = dirname(__filename);
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-  const indexPath = `${__dirname}/index.html`;
-  res.sendFile(indexPath);
+  res.sendFile(path.join(__dirname + "/index.html"));
 });
 
 app.get("/api/voices", async (req, res) => {
