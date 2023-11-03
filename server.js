@@ -11,7 +11,8 @@ app.use(express.json());
 
 // Configura la autenticación de Google Cloud Text-to-Speech
 const client = new TextToSpeechClient({
-  keyFilename: "../animated-canyon-403420-aee5ce8ac09e.json",
+  keyFilename:
+    "../Text To Speech Final/animated-canyon-403420-aee5ce8ac09e.json",
 });
 
 // Ruta para obtener la lista de voces
