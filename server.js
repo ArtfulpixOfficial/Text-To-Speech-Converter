@@ -1,7 +1,8 @@
 import express, { json } from "express";
 import cors from "cors";
 import { TextToSpeechClient } from "@google-cloud/text-to-speech";
-import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 const app = express();
 
 // use it before all route definitions
@@ -14,10 +15,11 @@ const client = new TextToSpeechClient({
   keyFilename:
     "../Text To Speech Final/animated-canyon-403420-aee5ce8ac09e.json",
 });
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
 app.get("/", (req, res) => {
-  const indexPath = path.join(__dirname, "index.html"); // Assuming the HTML file is in the same directory as 'server.js'
+  const indexPath = `${__dirname}/index.html`;
   res.sendFile(indexPath);
 });
 
