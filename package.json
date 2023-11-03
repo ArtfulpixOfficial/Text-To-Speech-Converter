@@ -1,0 +1,11 @@
+{
+  "name": "text-to-speech-final",
+  "version": "1.0.0",
+  "description": "A text to speech converter",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karan",
+  "license": "ISC"
+}
