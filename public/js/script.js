@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
 
-        // Download Functionality
-        downloadButton.addEventListener("click", () => {
+        // Download Handler function
+        const downloadHandler = () => {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
@@ -66,7 +66,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           // document.body.appendChild(a);
           a.click();
           URL.revokeObjectURL(url);
-        });
+        };
+        // Download Functionality
+        downloadButton.removeEventListener("click", downloadHandler);
+        downloadButton.addEventListener("click", downloadHandler);
       })
       .catch((error) => {
         console.error("Error:", error);
