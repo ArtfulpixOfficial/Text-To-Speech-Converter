@@ -2,6 +2,7 @@
   "version": 2,
   "name": "project-deployment",
   "builds": [
+    { "handle": "filesystem" },
     {
       "src": "server.js",
       "use": "@vercel/node"
@@ -12,5 +13,8 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ]
+  ],
+  "public": {
+    "static": "public"
+  }
 }
