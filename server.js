@@ -23,6 +23,8 @@ app.get("/", (req, res) => {
   res.sendFile(indexPath);
 });
 
+app.use(express.static(__dirname));
+
 app.get("/api/voices", async (req, res) => {
   try {
     // Realiza una solicitud a Google Cloud Text-to-Speech para obtener la lista de voces
