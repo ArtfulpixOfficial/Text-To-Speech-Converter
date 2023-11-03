@@ -19,10 +19,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
 
-app.get("/", (req, res) => {
-  const indexPath = `${__dirname}/index.html`;
-  res.sendFile(indexPath);
-});
 app.use(
   express.static(__dirname, {
     setHeaders: (res, path) => {
@@ -32,6 +28,12 @@ app.use(
     },
   })
 );
+
+app.get("/", (req, res) => {
+  const indexPath = `${__dirname}/index.html`;
+  res.sendFile(indexPath);
+});
+
 app.get("/api/voices", async (req, res) => {
   try {
     // Realiza una solicitud a Google Cloud Text-to-Speech para obtener la lista de voces
