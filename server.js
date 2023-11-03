@@ -19,15 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Ruta para obtener la lista de voces
 
-app.use(
-  express.static(__dirname, {
-    setHeaders: (res, path) => {
-      if (path.endsWith(".css")) {
-        res.setHeader("Content-Type", "text/css");
-      }
-    },
-  })
-);
+app.use(express.static(__dirname, "css"));
 
 app.get("/", (req, res) => {
   const indexPath = `${__dirname}/index.html`;
