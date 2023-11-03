@@ -2,17 +2,15 @@
   "version": 2,
   "name": "project-deployment",
   "builds": [
-    { "handle": "filesystem" },
     {
       "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/server.js"
-    }
+    { "handle": "filesystem" },
+    { "src": "/api/voices", "dest": "server.js" },
+    { "src": "/api/convert", "dest": "server.js" }
   ],
   "public": {
     "static": "public"
