@@ -52,24 +52,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         audioPlayer.play();
         downloadBtnLink.href = audioPlayer.src;
         downloadBtnLink.download = "converted_audio.mp3";
-        // Download Handler function
-        // const downloadHandler = () => {
-        //   const url = audioPlayer.src;
-        //   const a = document.createElement("a");
-        //   downloadBtnLink.href = url;
-        //   a.href = url;
-
-        //   // You can change the filename if needed
-        //   a.download = "converted_audio.mp3";
-
-        //   a.style.display = "none";
-        //   // document.body.appendChild(a);
-        //   a.click();
-        //   URL.revokeObjectURL(url);
-        // };
-        // Download Functionality
-        // downloadButton.removeEventListener("click", downloadHandler);
-        // downloadButton.addEventListener("click", downloadHandler);
       })
       .catch((error) => {
         console.error("Error:", error);

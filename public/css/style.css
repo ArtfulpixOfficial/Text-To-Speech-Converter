@@ -93,3 +93,10 @@ select {
 .controls-row {
   margin-top: 30px;
 }
+#download-btn-link:link,
+#download-btn-link:visited,
+#download-btn-link:hover,
+#download-btn-link:active {
+  text-decoration: none;
+  color: #fff;
+}
