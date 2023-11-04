@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const convertButton = document.getElementById("convert-button");
   const audioPlayer = document.getElementById("audio-player");
   const downloadButton = document.getElementById("download-button");
+  const downloadBtnLink = document.getElementById("download-btn-link");
 
   // Llena el selector de voces
   // Fill the voice selector with available voices from the API endpoint
@@ -49,24 +50,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       .then((blob) => {
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
-
-        // Download Handler function
-        const downloadHandler = () => {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-
-          // You can change the filename if needed
-          a.download = "converted_audio.mp3";
-
-          a.style.display = "none";
-          // document.body.appendChild(a);
-          a.click();
-          URL.revokeObjectURL(url);
-        };
-        // Download Functionality
-        downloadButton.removeEventListener("click", downloadHandler);
-        downloadButton.addEventListener("click", downloadHandler);
+        downloadBtnLink.href = audioPlayer.src;
+        downloadBtnLink.download = "converted_audio.mp3";
       })
       .catch((error) => {
         console.error("Error:", error);
