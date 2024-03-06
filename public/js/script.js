@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         option.value = voice.name;
         option.dataset.gender = voice.gender;
         option.dataset.languageCode = voice.languageCode;
+        option.dataset.supportedEngine = voice.supportedEngine;
         option.textContent = voice.displayName;
         voiceSelector.appendChild(option);
       });
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const selectedVoice = selectedOption.value;
     const selectedGender = selectedOption.dataset.gender;
     const selectedLanguageCode = selectedOption.dataset.languageCode;
+    const selectedEngine = selectedOption.dataset.supportedEngine;
 
     // Realiza una solicitud a tu API personalizada para convertir texto a voz
     // Converting text to speech
@@ -44,10 +46,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         voice: selectedVoice,
         gender: selectedGender,
         languageCode: selectedLanguageCode,
+        engine: selectedEngine,
       }),
     })
-      .then((response) => response.blob())
+      .then((res) => res.blob())
       .then((blob) => {
+        console.log(blob);
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
         downloadBtnLink.href = audioPlayer.src;
