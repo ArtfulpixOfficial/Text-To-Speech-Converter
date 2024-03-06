@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
       .then((res) => res.blob())
       .then((blob) => {
-        console.log(blob);
         audioPlayer.src = URL.createObjectURL(blob);
         audioPlayer.play();
         downloadBtnLink.href = audioPlayer.src;
