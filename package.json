@@ -11,8 +11,9 @@
   "author": "Karan",
   "license": "ISC",
   "dependencies": {
-    "@google-cloud/text-to-speech": "^5.0.1",
+    "@aws-sdk/client-polly": "^3.525.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "path": "^0.12.7",
     "url": "^0.11.3"
