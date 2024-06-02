@@ -160,19 +160,30 @@ select {
 }
 
 @media (max-width: 480px) {
+  .logo {
+    height: 15vh;
+    align-self: center;
+  }
   .hero h1 {
     font-size: 18px;
   }
 
   textarea {
     font-size: 24px;
+    width: 80%;
+    height: 35%;
   }
   #audio-player {
     /* flex: 1 1 100%; */
-    height: 100%;
+    height: 96px;
   }
   button {
     font-size: 24px;
     padding: 10px 40px;
   }
+  .row {
+    height: 18%;
+    gap: 5px;
+  }
 }
+
