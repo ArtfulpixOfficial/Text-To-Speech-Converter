@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", async function () {
+  const messageSection = document.querySelector(".message");
+  const heroSection = document.querySelector(".hero");
+  const textInput = document.querySelector(".text-input");
   const inputText = document.getElementById("input-text");
+
   const voiceSelector = document.getElementById("voice-selector");
   const convertButton = document.getElementById("convert-button");
   const audioPlayer = document.getElementById("audio-player");
@@ -24,6 +28,29 @@ document.addEventListener("DOMContentLoaded", async function () {
     .catch((error) => {
       console.error("Error:", error);
     });
+
+  textInput.addEventListener("input", function (e) {
+    if (this.value.length > 3) {
+      inputText.value = this.value;
+      messageSection.classList.add("hide");
+      messageSection.classList.remove("show");
+      heroSection.classList.add("show");
+      heroSection.classList.remove("hide");
+      inputText.focus();
+    }
+  });
+
+  inputText.addEventListener("input", function () {
+    if (this.value.length <= 3) {
+      textInput.value = this.value;
+      heroSection.classList.add("hide");
+      heroSection.classList.remove("show");
+      messageSection.classList.remove("hide");
+      messageSection.classList.add("show");
+      this.value = "";
+      textInput.focus();
+    }
+  });
 
   convertButton.addEventListener("click", async function (e) {
     e.preventDefault();

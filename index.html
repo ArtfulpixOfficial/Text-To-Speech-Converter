@@ -2,18 +2,38 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Text To Speech Converter - GreatStack</title>
+    <title>Text To Speech Converter</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <div class="hero">
-      <div class="logo">
-        <img src="images/logo_dark.png" class="logo-img" />
-      </div>
-      <textarea placeholder="Write anything here..." id="input-text"></textarea>
+    <div class="message show">
+      <img src="images/logo.png" alt="midyAI logo" />
+      <h1
+        class="text-4xl sm:text-[52px] font-bold font-secondary text-gray-800 dark:text-gray-100 uppercase relative"
+      >
+        MidyAI Text-To-Speech
+      </h1>
+      <h2 class="text-xl font-semibold text-gray-600 dark:text-gray-400">
+        Convert text into natural-sounding speech instantly
+      </h2>
+      <input
+        type="text"
+        placeholder="Start Typing in the language to convert"
+        class="text-input"
+      />
+    </div>
+    <div class="hero hide">
+      <span class="textarea-input">
+        <textarea
+          placeholder="Write anything here..."
+          id="input-text"
+        ></textarea>
+        <button id="convert-button">
+          <img src="images/play.png" />
+        </button>
+      </span>
       <div class="row">
         <select id="voice-selector"></select>
-        <button id="convert-button">Convert</button>
       </div>
       <div class="row controls-row">
         <audio controls id="audio-player"></audio>
